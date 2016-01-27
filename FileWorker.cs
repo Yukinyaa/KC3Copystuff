@@ -47,8 +47,8 @@ namespace WindowsFormsApplication2
         }
 
 
-        //copy whole zip file into chrome dir
-        static public void restore()
+
+        static public void restore() //copy whole zip file into chrome data dir
         {
             setTmpDataDirectory();
             try
@@ -74,7 +74,7 @@ namespace WindowsFormsApplication2
             setTmpDataDirectory();
             Copy.directory(
                 Path.Combine(chromeUserDir,@"Default\IndexedDB\chrome-extension_hkgmldnainaglpjngpajnnjfhpdjkohh_0.indexeddb.leveldb"),
-                Path.Combine(TmpDataDir, @"IndexedDB\hkgmldnainaglpjngpajnnjfhpdjkohh")
+                Path.Combine(TmpDataDir, @"IndexedDB\chrome-extension_hkgmldnainaglpjngpajnnjfhpdjkohh_0.indexeddb.leveldb")
                 );
             Copy.directory(
                 Path.Combine(chromeUserDir, @"Default\Managed Extension Settings\hkgmldnainaglpjngpajnnjfhpdjkohh"),
