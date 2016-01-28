@@ -76,18 +76,22 @@ namespace WindowsFormsApplication2
                 Path.Combine(chromeUserDir,@"Default\IndexedDB\chrome-extension_hkgmldnainaglpjngpajnnjfhpdjkohh_0.indexeddb.leveldb"),
                 Path.Combine(TmpDataDir, @"IndexedDB\chrome-extension_hkgmldnainaglpjngpajnnjfhpdjkohh_0.indexeddb.leveldb")
                 );
+            /* ^ this is indexed db.
             Copy.directory(
                 Path.Combine(chromeUserDir, @"Default\Managed Extension Settings\hkgmldnainaglpjngpajnnjfhpdjkohh"),
                 Path.Combine(TmpDataDir, @"Managed Extension Settings\hkgmldnainaglpjngpajnnjfhpdjkohh")
                 );
+             //* /
             Copy.directory(
                 Path.Combine(chromeUserDir, @"Default\Sync Extension Settings\hkgmldnainaglpjngpajnnjfhpdjkohh"),
                 Path.Combine(TmpDataDir, @"Sync Extension Settings\hkgmldnainaglpjngpajnnjfhpdjkohh")
                 );
+             //* /
             Copy.directory(
                 Path.Combine(chromeUserDir, @"Default\Local Extension Settings\hkgmldnainaglpjngpajnnjfhpdjkohh"),
                 Path.Combine(TmpDataDir, @"Local Extension Settings\hkgmldnainaglpjngpajnnjfhpdjkohh")
                 );
+             //*/
             Directory.CreateDirectory(Path.Combine(TmpDataDir, @"Local Storage"));
             Copy.file(
                 Path.Combine(chromeUserDir, @"Default\Local Storage\chrome-extension_hkgmldnainaglpjngpajnnjfhpdjkohh_0.localstorage"),
@@ -104,7 +108,7 @@ namespace WindowsFormsApplication2
         {
             OpenFileDialog FileDialog1 = new OpenFileDialog();
 
-            FileDialog1.Filter = "zip files (*.zip)|*.zip";
+            FileDialog1.Filter = "KC3改 backup data(.kcb)|*.kcb";
             FileDialog1.FilterIndex = 2;
             FileDialog1.RestoreDirectory = true;
 
@@ -112,12 +116,11 @@ namespace WindowsFormsApplication2
             
             return FileDialog1.FileName;
         }
-
         static String getSaveDir()
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "zip files (*.zip)|*.zip";
+            saveFileDialog1.Filter = "zip files (*.kcb)|*.kcb";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
 
