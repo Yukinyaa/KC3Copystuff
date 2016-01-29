@@ -30,11 +30,13 @@ namespace WindowsFormsApplication2
         private void button3_Click(object sender, EventArgs e)
         {
             FileWorker.restore();
+            MessageBox.Show("done");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             FileWorker.backup();
+            MessageBox.Show("done");
         }
 
         private void Form1_Load(object sender, EventArgs e)
