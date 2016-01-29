@@ -1,6 +1,8 @@
 # KC3Copystuff
 This is a [KC3改](https://github.com/KC3Kai/KC3Kai) data backup/restore external program for KC3kai.
 
+#PROJECT ABANDONED(by myself)
+
 ###Only For Windows?
 Yes, It was ment to be, But I am pritty sure it will work on linux as well.
 
