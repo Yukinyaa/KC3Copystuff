@@ -17,11 +17,6 @@ namespace WindowsFormsApplication2
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             FileWorker.setChromeDataDirectory(textBox1.Text);
@@ -29,7 +24,7 @@ namespace WindowsFormsApplication2
 
         private void Override_Click(object sender, EventArgs e)
         {
-            FileWorker.setUserName(Username.Text);
+            FileWorker.overrideAppname(Username.Text);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -40,11 +35,6 @@ namespace WindowsFormsApplication2
         private void button2_Click(object sender, EventArgs e)
         {
             FileWorker.backup();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)

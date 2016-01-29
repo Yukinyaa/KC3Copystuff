@@ -18,10 +18,9 @@ namespace WindowsFormsApplication2
         static private String appname = "hkgmldnainaglpjngpajnnjfhpdjkohh";
 
 
-        static public void setUserName(String username_)
+        static public void overrideAppname(String appname_)
         {
-            userName = username_;
-            setChromeDataDirectory();
+            appname = appname_;
         }
         static public void setChromeDataDirectory(String overrideDirectory=null)
         {
@@ -41,7 +40,7 @@ namespace WindowsFormsApplication2
             try {
                 Directory.Delete(TmpDataDir, true);
             }
-            catch (DirectoryNotFoundException dnf) { };
+            catch (DirectoryNotFoundException) { };
             
             Directory.CreateDirectory(TmpDataDir);
         }
@@ -55,7 +54,7 @@ namespace WindowsFormsApplication2
             {
                 ZipFile.ExtractToDirectory(getOpenDir(),TmpDataDir);
             }
-            catch (Exception e) { return; };
+            catch (Exception) { return; };
             Copy.directory(TmpDataDir, Path.Combine(chromeUserDir, "Default"));
             setTmpDataDirectory();
         }
@@ -73,8 +72,8 @@ namespace WindowsFormsApplication2
              * */
             setTmpDataDirectory();
             Copy.directory(
-                Path.Combine(chromeUserDir,@"Default\IndexedDB\chrome-extension_hkgmldnainaglpjngpajnnjfhpdjkohh_0.indexeddb.leveldb"),
-                Path.Combine(TmpDataDir, @"IndexedDB\chrome-extension_hkgmldnainaglpjngpajnnjfhpdjkohh_0.indexeddb.leveldb")
+                Path.Combine(chromeUserDir,@"Default\IndexedDB\chrome-extension_"+appname+"_0.indexeddb.leveldb"),
+                Path.Combine(TmpDataDir, @"IndexedDB\chrome-extension_" + appname + "_0.indexeddb.leveldb")
                 );
             /* ^ this is indexed db.
             Copy.directory(
@@ -94,13 +93,13 @@ namespace WindowsFormsApplication2
              //*/
             Directory.CreateDirectory(Path.Combine(TmpDataDir, @"Local Storage"));
             Copy.file(
-                Path.Combine(chromeUserDir, @"Default\Local Storage\chrome-extension_hkgmldnainaglpjngpajnnjfhpdjkohh_0.localstorage"),
-                Path.Combine(TmpDataDir, @"Local Storage\chrome-extension_hkgmldnainaglpjngpajnnjfhpdjkohh_0.localstorage")
+                Path.Combine(chromeUserDir, @"Default\Local Storage\chrome-extension_" + appname + "_0.localstorage"),
+                Path.Combine(TmpDataDir, @"Local Storage\chrome-extension_" + appname + "_0.localstorage")
                 );
             try{
             ZipFile.CreateFromDirectory(TmpDataDir, getSaveDir());
             }
-            catch (Exception e) { return; };
+            catch (Exception) { return; };
             setTmpDataDirectory();
         }
 
@@ -128,7 +127,7 @@ namespace WindowsFormsApplication2
             {
                 saveFileDialog1.ShowDialog();
             }
-            catch (Exception e) { };
+            catch (Exception) { };
             return saveFileDialog1.FileName;
         }
 
